@@ -31,7 +31,7 @@ products.duplicated().sum()
 # COMMAND ----------
 
 # DBTITLE 1,checking for null values
-products.isnull()
+products.isnull().sum()
 
 # COMMAND ----------
 
