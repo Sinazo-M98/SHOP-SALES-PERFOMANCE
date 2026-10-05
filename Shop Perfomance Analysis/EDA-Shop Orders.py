@@ -295,3 +295,4 @@ display(spark.table("workspace.default.orders_processed"))
 
 # COMMAND ----------
 
+orders['CustomerID'].duplicated().sum()

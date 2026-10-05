@@ -19,3 +19,20 @@ customers_orders.write \
 # COMMAND ----------
 
 display(spark.table("workspace.default.customers_orders").limit(10))
+
+# COMMAND ----------
+
+print(f"({customers_orders.count()}, {len(customers_orders.columns)})")
+
+# COMMAND ----------
+
+customers_orders.shape
+
+# COMMAND ----------
+
+customers_orders.columns
+
+# COMMAND ----------
+
+customers_orders['OrderID'].duplicated().sum()
+orders_customers['OrderID'].duplicated().sum()
