@@ -272,3 +272,26 @@ orders.duplicated().sum()
 # COMMAND ----------
 
 orders.info()
+
+# COMMAND ----------
+
+# DBTITLE 1,CREATING/SAVING THE PROCESSED TABLE
+####Convert the pandas DataFrame back to a spark DataFrame
+spark_orders=spark.createDataFrame(orders)
+
+spark_orders.write \
+    .mode("overwrite") \
+    .format("delta") \
+    .option("overwriteSchema","true") \
+    .saveAsTable("workspace.default.orders_processed")
+
+print("Table 'workspace.default.orders_processed' saved successfully.")
+
+print(f"Successfully created table: {'workspace.default.orders_processed'}")
+
+# COMMAND ----------
+
+display(spark.table("workspace.default.orders_processed"))
+
+# COMMAND ----------
+
